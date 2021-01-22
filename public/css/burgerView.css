@@ -1,0 +1,49 @@
+body{
+    background-color: rgb(255, 187, 60);
+}
+
+h1 {
+    text-align: center;
+}
+
+.burger-category{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.burger-category .choose{
+    width: 50%;
+}
+
+.burger-category .eaten{
+    width: 50%;
+}
+
+.burger-list{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.burger-list .choose-burger{
+    width: 50%;
+    list-style-position: inside;
+}
+
+.burger-list .devour-burger{
+    width: 50%;
+    list-style-position: inside;
+}
+
+.add-line{
+    text-align: center;
+}
+
+.add-burger{
+    text-align: center;
+}
+
+.add-burger button{
+    margin-top: 1%;
+}

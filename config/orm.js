@@ -1,8 +1,9 @@
-var connection = require("./connection.js");
+var connection = require("../config/connection");
 
-var arr = [];
 
 function printQuestionMarks(num){
+
+    var arr = [];
 
     for(var i = 0; i < num; i++){
         arr.push("?");
@@ -40,18 +41,9 @@ var orm = {
         });
     },
     create: function(table, cols, vals, cb){
-        var queryString = "INSERT INTO " + table;
+        console.log(vals);
 
-        queryString += " (";
-        queryString += cols.toString();
-        queryString += ") ";
-        queryString += "VALUES (";
-        queryString += printQuestionMarks(vals.length);
-        queryString += ") ";
-
-        console.log(queryString);
-
-        connection.query(queryString, function(err, result){
+        connection.query(`INSERT INTO burgers (burger_name, devoured) VALUES ("${vals[0]}", false)`, function(err, result){
             if(err){
                 throw err;
             }
@@ -75,22 +67,6 @@ var orm = {
             cb(result);
         });
     },
-    delete: function(table, condition, cb){
-        var queryString = "DELETE FROM " + table;
-
-        queryString += " WHERE ";
-        queryString += condition;
-
-        console.log(queryString);
-
-        connection.query(queryString, function(err, result){
-            if(err){
-                throw err
-            }
-
-            cb(result);
-        })
-    } 
 
 };
 

@@ -1,0 +1,47 @@
+<h1>Burgers!</h1>
+<img src="BurgerPicture.png" alt="Burger" width="100" height="132">
+
+<div class="burger-category">
+  <h2 class="choose">Burgers to choose from</h2>
+  <h2 class="eaten">Burgers that have been eaten</h2>
+</div>
+
+<div class="burger-list">
+
+  <ul class="choose-burger">
+    {{#each burgers}}
+    {{#if devoured}}
+    {{else}}
+    <li>
+      {{burger_name}}
+      <button class="devour" data-id="{{ID}}" data-newdevour="{{devoured}}">
+        {{#if devoured}}Re-Order Burger{{else}}Devour It!{{/if}}
+      </button>
+    </li><br>
+    {{/if}}
+    {{/each}}
+  </ul>
+
+  <ul class="devour-burger">
+    {{#each burgers}}
+    {{#if devoured}}
+    <li>
+      {{burger_name}}
+    </li><br>
+    {{else}}
+    {{/if}}
+    {{/each}}
+  </ul>
+</div>
+
+<h2 class="add-line">Add a Burger</h2>
+
+<form class="add-burger">
+
+  <div class="form-group1">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <button type="submit">Add</button>
+</form>
